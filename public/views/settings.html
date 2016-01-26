@@ -1,0 +1,51 @@
+<div class="row">
+	<h2 class="col-md-12">Add a Movie </h2>
+	<form ng-submit="addMovie()" enctype="multipart/form-data" id="movie-form">
+		<div class="col-md-6">
+			<label class="full-width">Title</lable>
+			<input ng-model="movie.title" name="title" class="form-control" type="text" required />
+		</div>
+
+		<div class="col-md-6">
+			<label class="full-width">Poster</lable>
+			<input ng-model="movie.image" name="poster" class="form-control" type="file" id="image" required />
+		</div>
+
+		<div class="col-md-6">
+			<label class="full-width">Categories</lable>
+			 <div ng-repeat="cat in movie.categories" class="checkbox-list">
+			 	<label>{{cat.title}}</label>
+			 	<input type="checkbox" name="categories[]" value="{{cat.id}}" class="form*control">
+			 </div>
+		</div>
+
+		<div class="col-md-6">
+			<label class="full-width">Publish</lable>
+			<select name="public" class="form-control" >
+				<option value="0">No</option>
+				<option value="1">Yes</option>
+			 </select>
+		</div>
+
+		<div class="col-md-12">
+			<label class="full-width">Description</lable>
+			<textarea ng-model="movie.description" name="description" class="form-control" type="text" required ></textarea>
+		</div>
+		<div class="col-md-12">
+			<button class="btn btn-success" type="submit">Submit</button>
+	</form>
+</div>
+<div>
+	<h2 class="col-md-12">Add a Movie Category </h2>
+	<form ng-submit="addCategory()" >
+		<div class="col-md-6">
+			<label class="full-width">Title</lable>
+			<input ng-model="category.title" name="title" class="form-control" type="text" required />
+		</div>
+
+		<div class="col-md-6">
+			<label class="full-width">&nbsp;</lable>
+			<button class="btn btn-success form-control" type="submit">Submit</button>
+		</div>
+	</form>
+</div>

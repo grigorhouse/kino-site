@@ -1,0 +1,45 @@
+<div class="row">
+	<h2 class="col-md-12">Sign Up</h2>
+	<form ng-submit="signUp()" id="movie-form">
+		<div class="col-md-6">
+			<label class="full-width">Name</lable>
+			<input ng-model="user.name" class="form-control" type="text" required />
+		</div>
+
+		<div class="col-md-6">
+			<label class="full-width">Password</lable>
+			<input ng-model="password" class="form-control" type="password" idrequired />
+		</div>
+
+		<div class="col-md-6">
+			<label class="full-width">Repeat Password</lable>
+			<input ng-model="passwrod_2" class="form-control" type="password" id="image" required />
+		</div>
+
+		<div class="col-md-6">
+			<label class="full-width">Role</lable>
+			<select ng-model="user.role" class="form-control" required>
+				<option value="">Select</option>
+				<option ng-repeat="role in roles" value="{{role.id}}">{{role.title}}</option>
+			 </select>
+		</div>
+
+		
+		<div class="col-md-12">
+			<button class="btn btn-success" type="submit">Submit</button>
+	</form>
+</div>
+<div>
+	<h2 class="col-md-12">Add a Movie Category </h2>
+	<form ng-submit="addCategory()" >
+		<div class="col-md-6">
+			<label class="full-width">Title</lable>
+			<input ng-model="category.title" ng-model="title" class="form-control" type="text" required />
+		</div>
+
+		<div class="col-md-6">
+			<label class="full-width">&nbsp;</lable>
+			<button class="btn btn-success form-control" type="submit">Submit</button>
+		</div>
+	</form>
+</div>

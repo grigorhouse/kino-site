@@ -1,0 +1,8 @@
+<div class="row" when-scrolled="getMore()" ng-repeat="movie in movies">
+  <div class="col-md-3"><img ng-src="{{movie.image}}"></div>
+  <div class="col-md-9">
+    <a href="#/movie/{{movie.id}}"><h2 class="top-0">{{movie.title}}</h2></a>
+    <p>{{movie.description}}</p>
+  </div>
+  <div class="line col-md-12"></div>
+</div>
