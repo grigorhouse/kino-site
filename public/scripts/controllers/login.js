@@ -8,9 +8,15 @@
  * Controller of the kinoSiteApp
  */
 angular.module('kinoSiteApp')
-  .controller('AuthCtrl',['$http', '$scope', '$rootScope', function ($http, $scope, $rootScope) {
+  .controller('AuthCtrl',['$http', '$scope', '$rootScope', '$location', function ($http, $scope, $rootScope, $location) {
    $scope.signUp = function() {
+      $http.post('/user',$scope.user);
+   };
 
+   $scope.logIn = function() {
+      $rootScope.logedIn = true;
+      $http.post('/login', $scope.login);
+      $location.url('/');
    };
 
    $rootScope.nav = {login: true};

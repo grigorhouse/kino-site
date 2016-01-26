@@ -24,7 +24,9 @@ class MoviesController extends Controller
      */
     public function destroy($id)
     {
-        Movie::delete($id);
+        $movie = Movie::find($id);
+
+        $movie->delete();
     }
 
     /**
@@ -32,7 +34,7 @@ class MoviesController extends Controller
      */
     public function update($id, Request $request)
     {
-        Movie::update($request->all());
+        Movie::find($id)->update($request->all());
     }
 
     /**

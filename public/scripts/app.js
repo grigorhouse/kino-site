@@ -44,6 +44,11 @@ angular
         controller: 'AuthCtrl',
         controllerAs: 'auth'
       })
+      .when('/logout', {
+        templateUrl: 'views/auth.html',
+        controller: 'OutCtrl',
+        controllerAs: 'out'
+      })
       .otherwise({
         redirectTo: '/'
       });

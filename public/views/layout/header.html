@@ -18,8 +18,9 @@
         <ul class="nav navbar-nav">
           <li ng-class="[nav, {active: nav.home}]"><a href="#/">Home</a></li>
           <li ng-class="[nav, {active: nav.categories}]"><a ng-href="#/about">Categories</a></li>
-          <li ng-class="[nav, {active: nav.settings}]"><a ng-href="#/settings">Settings</a></li>
-          <li ng-class="[nav, {active: nav.login}]"><a ng-href="#/login">Login/Sign Up</a></li>
+          <li ng-class="[nav, {active: nav.settings}]" ng-show="logedIn"><a ng-href="#/settings">Settings</a></li>
+          <li ng-class="[nav, {active: nav.login}]" ng-show="!logedIn"><a ng-href="#/login">Login/Sign Up</a></li>
+          <li ng-class="[nav, {active: nav.login}]" ng-show="logedIn"><a ng-href="#/logout">Logout</a></li>
         </ul>
       </div>
     </div>

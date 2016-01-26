@@ -8,11 +8,13 @@
  * Controller of the kinoSiteApp
  */
 angular.module('kinoSiteApp')
-  .controller('MainCtrl',['$http', '$scope', '$rootScope', function ($http, $scope, $rootScope) {
+  .controller('MainCtrl',['$http', '$scope', '$rootScope', 'authService', function ($http, $scope, $rootScope, authService) {
     $scope.count = 10;
     $scope.start_point = 0;
     $scope.ended = false;
     $scope.inSearch = false;
+
+    authService.checkAuth();
 
     $scope.movies = [];
 

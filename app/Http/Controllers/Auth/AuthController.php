@@ -69,4 +69,9 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
+    public function check()
+    {
+        return ['auth' => true];
+    }
 }

@@ -2,13 +2,13 @@
 	<h2 class="col-md-12">Sign Up</h2>
 	<form ng-submit="signUp()" id="movie-form">
 		<div class="col-md-6">
-			<label class="full-width">Name</lable>
-			<input ng-model="user.name" class="form-control" type="text" required />
+			<label class="full-width">Email</lable>
+			<input ng-model="user.email" class="form-control" type="text" required />
 		</div>
 
 		<div class="col-md-6">
 			<label class="full-width">Password</lable>
-			<input ng-model="password" class="form-control" type="password" idrequired />
+			<input ng-model="user.password" class="form-control" type="password" idrequired />
 		</div>
 
 		<div class="col-md-6">
@@ -30,11 +30,16 @@
 	</form>
 </div>
 <div>
-	<h2 class="col-md-12">Add a Movie Category </h2>
-	<form ng-submit="addCategory()" >
+	<h2 class="col-md-12">Log in</h2>
+	<form ng-submit="logIn()" >
 		<div class="col-md-6">
-			<label class="full-width">Title</lable>
-			<input ng-model="category.title" ng-model="title" class="form-control" type="text" required />
+			<label class="full-width">Email</lable>
+			<input ng-model="login.email" class="form-control" type="email" required />
+		</div>
+
+		<div class="col-md-6">
+			<label class="full-width">Password</lable>
+			<input ng-model="login.password" class="form-control" type="password" idrequired />
 		</div>
 
 		<div class="col-md-6">

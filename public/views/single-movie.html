@@ -1,7 +1,13 @@
 <div class="row" >
   <div class="col-md-5 full-pic"><img ng-src="{{movie.image}}"></div>
   <div class="col-md-7">
-    <h2 class="top-0">{{movie.title}}</h2>
+  	<button class="btn-default pull-right btn" ng-show="logedIn" ng-click="changeStatus()">
+  		{{movie.public ? 'Unpublish' : 'Publish'}}
+  	</button>
+  	<button class="btn-warning pull-right btn" ng-show="logedIn" ng-click="deleteMovie()">
+  		Delete
+  	</button>
+    <h2 class="top-0">{{movie.title}}</h2> 
     <a ng-repeat="cat in movie.categories">{{cat.title}} </a>
     <p>{{movie.description}}</p>
   </div>
