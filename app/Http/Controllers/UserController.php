@@ -39,7 +39,12 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        User::create($request->all());
+        $user = User::where('email', '=', $request->get('email'))->first();
+        if(!$user){
+            return User::create($request->all());
+        } else {
+            return ['error' => 'User with that email already exist'];
+        }
     }
 
     /**
@@ -87,8 +92,9 @@ class UserController extends Controller
         //
     }
 
-    public function check()
+    public function check(Request $request)
     {
+
         dd(Auth::user());
         return  Auth::user();
     }
@@ -97,6 +103,7 @@ class UserController extends Controller
     {
         $user = User::where('email','=',$request->get('email'))->first();
         Auth::login($user);
+        $request->session()->put('current_user',Auth::user());
         dd(Auth::user());
     }
 }

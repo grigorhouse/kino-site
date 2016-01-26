@@ -1,3 +1,22 @@
+<div>
+	<h2 class="col-md-12">Log in</h2>
+	<form ng-submit="logIn()" >
+		<div class="col-md-6">
+			<label class="full-width">Email</lable>
+			<input ng-model="login.email" class="form-control" type="email" required />
+		</div>
+
+		<div class="col-md-6">
+			<label class="full-width">Password</lable>
+			<input ng-model="login.password" class="form-control" type="password" idrequired />
+		</div>
+
+		<div class="col-md-6">
+			<label class="full-width">&nbsp;</lable>
+			<button class="btn btn-success form-control" type="submit">Submit</button>
+		</div>
+	</form>
+</div>
 <div class="row">
 	<h2 class="col-md-12">Sign Up</h2>
 	<form ng-submit="signUp()" id="movie-form">
@@ -27,24 +46,5 @@
 		
 		<div class="col-md-12">
 			<button class="btn btn-success" type="submit">Submit</button>
-	</form>
-</div>
-<div>
-	<h2 class="col-md-12">Log in</h2>
-	<form ng-submit="logIn()" >
-		<div class="col-md-6">
-			<label class="full-width">Email</lable>
-			<input ng-model="login.email" class="form-control" type="email" required />
-		</div>
-
-		<div class="col-md-6">
-			<label class="full-width">Password</lable>
-			<input ng-model="login.password" class="form-control" type="password" idrequired />
-		</div>
-
-		<div class="col-md-6">
-			<label class="full-width">&nbsp;</lable>
-			<button class="btn btn-success form-control" type="submit">Submit</button>
-		</div>
 	</form>
 </div>
