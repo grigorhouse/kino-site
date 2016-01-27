@@ -8,7 +8,12 @@
  * Controller of the kinoSiteApp
  */
 angular.module('kinoSiteApp')
-  .controller('SettingsCtrl',['$scope','$http','$rootScope', function ($scope,$http, $rootScope) {
+  .controller('SettingsCtrl',['$scope','$http','$rootScope', '$location',
+        function ($scope,$http, $rootScope, $location) {
+
+    if(!$rootScope.logedIn){
+        $location.url('/');
+    }
     $scope.category = {
     	'title': '',
     };
@@ -31,9 +36,24 @@ angular.module('kinoSiteApp')
     refreshCategories();
 
     $scope.categories = [{}];
+    $scope.cats_selected = [];
 
     $scope.addMovie = function() {
-    	console.log($scope.movie);
+        var selected = false;
+        for(var i in $scope.cats_selected){
+            if($scope.cats_selected[i]){
+               selected = true;
+               break; 
+            }
+        }
+
+        if(!selected){
+            $scope.formError = 'You must select at least on category!';
+            return false;
+        } else {
+            $scope.formError = false;
+        }
+
     	var data = new FormData(document.getElementById('movie-form'));
         var request = new XMLHttpRequest();
         request.open("POST", "/movie");
@@ -54,7 +74,6 @@ angular.module('kinoSiteApp')
 
     $scope.incCategories = function() {
     	$scope.categories.push({});
-    	console.log($scope.categories);
     }
 
   }]);

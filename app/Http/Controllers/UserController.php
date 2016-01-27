@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\User as User;
 use Auth;
+use Session;
 
 class UserController extends Controller
 {
@@ -39,9 +40,12 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+
         $user = User::where('email', '=', $request->get('email'))->first();
         if(!$user){
-            return User::create($request->all());
+            $data = $request->all();
+            $data['password'] = bcrypt($data['password']);
+            Auth::login(User::create($data));
         } else {
             return ['error' => 'User with that email already exist'];
         }
@@ -92,18 +96,25 @@ class UserController extends Controller
         //
     }
 
-    public function check(Request $request)
+    public function check()
     {
-
-        dd(Auth::user());
         return  Auth::user();
     }
 
+    // Log in function for user
     public function login(Request $request)
     {
         $user = User::where('email','=',$request->get('email'))->first();
-        Auth::login($user);
-        $request->session()->put('current_user',Auth::user());
-        dd(Auth::user());
+        if($user && Auth::attempt($request->all(), true)){
+            Auth::login($user);
+        } else {
+            return ['error' => 'email or password is incorrect'];
+        }
+    }
+
+    // Log out function for user
+    public function logout()
+    {
+        return Auth::logout();
     }
 }

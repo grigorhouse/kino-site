@@ -8,7 +8,9 @@
  * Controller of the kinoSiteApp
  */
 angular.module('kinoSiteApp')
-  .controller('OutCtrl',[ '$location', '$rootScope', function ($location, $rootScope) {
-  	$rootScope.logedIn = false;
-    $location.url('/login');
+  .controller('OutCtrl',[ '$location', '$rootScope', '$http', function ($location, $rootScope, $http) {
+  	  $http.get('/logout').then(function(res){
+        $rootScope.logedIn = false;
+        $location.url('/login');
+      });
   }]);

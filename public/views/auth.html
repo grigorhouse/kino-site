@@ -1,4 +1,4 @@
-<div>
+<div class="row">
 	<h2 class="col-md-12">Log in</h2>
 	<form ng-submit="logIn()" >
 		<div class="col-md-6">
@@ -32,7 +32,7 @@
 
 		<div class="col-md-6">
 			<label class="full-width">Repeat Password</lable>
-			<input ng-model="passwrod_2" class="form-control" type="password" id="image" required />
+			<input ng-model="password_2" class="form-control" type="password" id="image" required />
 		</div>
 
 		<div class="col-md-6">
@@ -45,6 +45,7 @@
 
 		
 		<div class="col-md-12">
+			<p class="alert alert-danger" ng-show="hasError">{{beError}}</p>
 			<button class="btn btn-success" type="submit">Submit</button>
 	</form>
 </div>

@@ -10,7 +10,7 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-Route::group([], function () {
+Route::group(['middleware' => ['Illuminate\Session\Middleware\StartSession']], function () {
 	Route::get('/', function () {
 	    return view('welcome');
 	});
@@ -19,7 +19,8 @@ Route::group([], function () {
 	Route::resource('/category', 'CategoryController');
 	Route::get('/check', 'UserController@check');
 	Route::resource('/user', 'UserController');
-	Route::post('/login', 'UserController@login');    
+	Route::post('/login', 'UserController@login');
+	Route::get('/logout', 'UserController@logout');
 });
 
 

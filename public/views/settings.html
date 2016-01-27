@@ -15,7 +15,7 @@
 			<label class="full-width">Categories</lable>
 			 <div ng-repeat="cat in movie.categories" class="checkbox-list">
 			 	<label>{{cat.title}}</label>
-			 	<input type="checkbox" name="categories[]" value="{{cat.id}}" class="form*control">
+			 	<input type="checkbox" name="categories[]" value="{{cat.id}}" ng-model="cats_selected[cat.id]">
 			 </div>
 		</div>
 
@@ -32,6 +32,7 @@
 			<textarea ng-model="movie.description" name="description" class="form-control" type="text" required ></textarea>
 		</div>
 		<div class="col-md-12">
+			<p class="alert alert-danger" ng-show="formError">{{formError}}</p>
 			<button class="btn btn-success" type="submit">Submit</button>
 	</form>
 </div>

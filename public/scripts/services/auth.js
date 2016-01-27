@@ -11,8 +11,12 @@ angular.module('kinoSiteApp')
   		var auth = {};
     	auth.checkAuth = function(){
     		$http.get('/check').then(function(res){
-    			console.log(res.data);
-    		})
+				if(res.data){
+					$rootScope.logedIn = true;
+				} else {
+					$rootScope.logedIn = false;
+				}
+    		});
     	};
 
     	return auth;

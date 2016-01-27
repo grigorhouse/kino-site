@@ -10,14 +10,13 @@
           <span class="icon-bar"></span>
         </button>
 
-        <a class="navbar-brand" href="#/">kinoSite</a>
+        <a class="navbar-brand" href="#/">KinoSite</a>
       </div>
 
       <div class="collapse navbar-collapse" id="js-navbar-collapse">
 
         <ul class="nav navbar-nav">
           <li ng-class="[nav, {active: nav.home}]"><a href="#/">Home</a></li>
-          <li ng-class="[nav, {active: nav.categories}]"><a ng-href="#/about">Categories</a></li>
           <li ng-class="[nav, {active: nav.settings}]" ng-show="logedIn"><a ng-href="#/settings">Settings</a></li>
           <li ng-class="[nav, {active: nav.login}]" ng-show="!logedIn"><a ng-href="#/login">Login/Sign Up</a></li>
           <li ng-class="[nav, {active: nav.login}]" ng-show="logedIn"><a ng-href="#/logout">Logout</a></li>

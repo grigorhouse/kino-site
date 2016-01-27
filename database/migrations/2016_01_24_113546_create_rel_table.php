@@ -13,7 +13,7 @@ class CreateRelTable extends Migration
     public function up()
     {
         //
-        Schema::create('category_rel_movie', function (Blueprint $table) {
+        Schema::create('categories_rel_movie', function (Blueprint $table) {
             $table->increments('id');
             $table->string('movie_id');
             $table->string('category_id');
