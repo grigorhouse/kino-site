@@ -32,7 +32,7 @@ angular.module('kinoSiteApp')
               $rootScope.logedIn = true;
               $location.url('/');
           } else {
-              $scope.hasError = true;
+              $scope.hasLogError = true;
               $scope.beError = res.data.error;
           }
 

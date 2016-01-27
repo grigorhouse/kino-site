@@ -108,7 +108,7 @@ class UserController extends Controller
         if($user && Auth::attempt($request->all(), true)){
             Auth::login($user);
         } else {
-            return ['error' => 'email or password is incorrect'];
+            return ['error' => 'Email or Password is incorrect'];
         }
     }
 

@@ -10,7 +10,9 @@
 			<label class="full-width">Password</lable>
 			<input ng-model="login.password" class="form-control" type="password" idrequired />
 		</div>
-
+		<div class="col-md-12">
+			<p class="alert alert-danger" ng-show="hasLogError">{{beError}}</p>
+		</div>
 		<div class="col-md-6">
 			<label class="full-width">&nbsp;</lable>
 			<button class="btn btn-success form-control" type="submit">Submit</button>
